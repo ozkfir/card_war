@@ -4,29 +4,41 @@
 #include <stdexcept>
 #include "card.hpp"
 #include <vector>
+namespace ariel{}
+
 #ifndef PLAYER_H
 #define PLAYER_H
-#include <string>
 
-namespace ariel{}
+
 
 class Player{
     std::string name;
-    vector <Card> taken;
-    vector <Card> stack;
-    int rate_win;
-
+    vector<Card> taken; // vector of cards taken by the player
+    vector<Card> stack; // vector of cards currently in the player's stack
+    int rate_win; // win rate of the player
 public:
-    int get_rate_win() const;
-    void set_rate_win();
     Player(std::string name);
+
+    int get_rate_win() const;
     int stacksize() const;
     int cardesTaken() const;
     string get_name() const;
-    void add_to_stack(Card & temp);
-    void add_to_taken(Card & temp);
-    void print_taken()const;
+
+    // print player's taken cards
+    void print_taken() const;
+
+    // pop top card from stack
     Card& pop();
 
+    // set win rate
+    void set_rate_win();
+
+    // add card to stack
+    void add_to_stack(Card& temp);
+
+    // add card to taken
+    void add_to_taken(Card& temp);
 };
+
+
 #endif

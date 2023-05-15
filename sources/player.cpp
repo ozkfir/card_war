@@ -1,16 +1,14 @@
 #include <iostream>
-#include <fstream>
-#include <sstream>
-#include <stdexcept>
 #include "player.hpp"
 using namespace std;
 
 
-Player::Player(string name1):name(name1),rate_win(0){
-}
+Player::Player(string name1):name(name1),rate_win(0){}
+
 void Player::print_taken()const{
-   for (int i = 0; i < taken.size(); ++i)
-      cout << taken[(std::size_t)i].get_card()<<", ";
+   for (int i = 0; i < taken.size(); ++i) {
+       cout << taken[(std::size_t) i].get_card() << ", ";
+   if(i%6==0)cout<<endl;}
    cout<<" "<<endl;
 }
 int Player::get_rate_win()const{

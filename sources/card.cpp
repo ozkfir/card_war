@@ -1,14 +1,9 @@
-//
-// Created by oz on 07/04/23.
-//
+
 #include "card.hpp"
 
 
-Card::Card(string str,int n)
-{
-    this->kind=str;
-    this->num=n;
-}
+Card::Card(string str,int n):kind(str),num(n){}
+
 string Card::get_kind()const{
     return kind;
 }
@@ -16,7 +11,7 @@ int Card::get_num()const{
     return num;
 }
 string Card::get_card() const{
-    string tnum;
+    string tnum=to_string(this->num);
     switch (num) {
         case 1:
             tnum="Ace";
